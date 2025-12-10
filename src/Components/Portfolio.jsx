@@ -1,9 +1,7 @@
 
 import React from "react";
 
-import image from "../images/pexels-tima-miroshnichenko-9572568.jpg";
 
-const imageAltText = "desktop with books and laptop";
 
 const projectList = [
   {
@@ -36,14 +34,8 @@ const Portfolio = () => {
   return (
     <section className="padding" id="portfolio">
       <h2 style={{ textAlign: "center" }}>Portfolio</h2>
-      <div style={{ display: "flex", flexDirection: "row", paddingTop: "3rem" }}>
-        <div style={{ maxWidth: "40%", alignSelf: "center" }}>
-          <img
-            src={image}
-            style={{ height: "90%", width: "100%", objectFit: "cover" }}
-            alt={imageAltText}
-          />
-        </div>
+      <div className="portfolio-content">
+
         <div className="container">
           {projectList.map((project) => (
             <div className="box" key={project.title}>

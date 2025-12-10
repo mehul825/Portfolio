@@ -12,6 +12,7 @@ body {
   overflow-x: hidden;
   padding: 0;
   width: 100%;
+  box-sizing: border-box;
 }
 
 div#main {
@@ -35,13 +36,12 @@ section.padding {
 
 section img.background {
   height: 100%;
-  left: 50%;
+  left: 0;
   object-fit: cover;
   pointer-events: none;
   position: absolute;
   top: 0;
-  transform: translate(-50%, 0);
-  width: 100vmax;
+  width: 100%;
   z-index: -1;
 }
 
@@ -125,25 +125,29 @@ img.socialIcon {
 }
 
 /* Navbar Styles */
+/* Navbar Styles */
 .navbar {
   position: fixed;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.9);
   padding: 1rem;
   top: 0;
   width: 100%;
-  z-index: 10;
-  backdrop-filter: blur(5px);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .nav-links {
   display: flex;
   gap: 2rem;
   align-items: center;
-  list-style: none; /* Reset default list style if we were using ul/li, but here anchors are direct children or wrapped */
+  list-style: none;
+  /* Reset default list style if we were using ul/li, but here anchors are direct children or wrapped */
 }
 
 .nav-links a {
@@ -169,10 +173,83 @@ img.socialIcon {
   transition: all 0.3s ease;
 }
 
+/* Home Section Styles */
+.home-content {
+  position: absolute;
+  top: 5rem;
+  left: 2rem;
+  width: 17rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll-down img {
+  height: 3rem;
+  width: 3rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* About Section */
+.about-content {
+  background-color: white;
+  width: 50%;
+  padding: 4rem;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.about-content ul {
+  text-align: left;
+  columns: 2;
+  font-size: 1.25rem;
+  margin: 2rem 3rem;
+  gap: 3rem;
+}
+
+/* Portfolio Section */
+.portfolio-content {
+  display: flex;
+  flex-direction: row;
+  padding-top: 3rem;
+  gap: 2rem;
+}
+
+.portfolio-image-container {
+  max-width: 40%;
+  align-self: center;
+}
+
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
   h1 {
-    font-size: 3rem; 
+    font-size: 3rem;
+    line-height: 1.1;
   }
 
   h2 {
@@ -185,13 +262,14 @@ img.socialIcon {
   }
 
   .navbar {
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 1rem 2rem;
     align-items: center;
   }
 
   .hamburger {
     display: flex;
+    z-index: 200;
   }
 
   .nav-links {
@@ -206,15 +284,61 @@ img.socialIcon {
     align-items: center;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+
+  .nav-links a {
+    color: #333;
+    font-size: 1.2rem;
   }
 
   .nav-links.active {
     transform: translateX(0);
   }
-  
+
   .container {
     grid-template-columns: 1fr;
     width: 90%;
+  }
+
+  /* Home Mobile */
+  .home-content {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+
+  .home-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .home-content h2 {
+    font-size: 1.2rem;
+  }
+
+  /* About Mobile */
+  .about-content {
+    width: 90%;
+    padding: 2rem;
+    margin: 2rem auto;
+  }
+
+  .about-content ul {
+    columns: 1;
+    margin: 2rem 1rem;
+    padding-left: 1rem;
+  }
+
+  /* Portfolio Mobile */
+  .portfolio-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .portfolio-image-container {
+    display: none !important;
   }
 }
