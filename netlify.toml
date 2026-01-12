@@ -1,6 +1,7 @@
 [build]
-  command = "cd client && npm install && npm run build"
+  command = "cd server && npm install && cd ../client && npm install && npm run build"
   publish = "client/dist"
+  functions = "server/functions"
 
 [functions]
   external_node_modules = ["express", "mongoose", "cors", "dotenv", "serverless-http"]
