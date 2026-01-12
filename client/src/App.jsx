@@ -20,7 +20,9 @@ function App() {
                 setLoading(false);
             } catch (err) {
                 console.error("Error fetching data:", err);
-                setError("Failed to load portfolio data. Please try again later.");
+                const status = err.response?.status;
+                const message = err.response?.data?.message || err.message;
+                setError(`Failed to load portfolio data. Status: ${status || 'Unknown'}. Message: ${message}`);
                 setLoading(false);
             }
         };
@@ -38,8 +40,17 @@ function App() {
 
     if (error) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-slate-900 text-red-500">
-                {error}
+            <div className="min-h-screen flex flex-col items-center justify-center bg-slate-900 text-red-500 p-4 text-center">
+                <h2 className="text-2xl font-bold mb-2">Error Loading Data</h2>
+                <p className="mb-4">{error}</p>
+                <div className="bg-slate-800 p-4 rounded text-left text-sm font-mono text-slate-300 whitespace-pre-wrap max-w-2xl overflow-auto border border-slate-700">
+                    <p>Possible causes:</p>
+                    <ul className="list-disc pl-5 mb-2">
+                        <li>MongoDB URI is missing in Netlify Settings</li>
+                        <li>Database is empty (did you run the seed script?)</li>
+                        <li>Network Access in MongoDB Atlas not allowing all IPs (0.0.0.0/0)</li>
+                    </ul>
+                </div>
             </div>
         );
     }

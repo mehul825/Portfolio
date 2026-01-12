@@ -11,10 +11,41 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
+// Connect to MongoDB
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio';
-mongoose.connect(MONGODB_URI)
-    .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log(err));
+
+// Mongoose connection optimization for Serverless
+let cachedPromise = null;
+
+const connectDB = async () => {
+    if (mongoose.connection.readyState >= 1) {
+        return;
+    }
+
+    if (!cachedPromise) {
+        cachedPromise = mongoose.connect(MONGODB_URI)
+            .then(() => console.log('MongoDB Connected'))
+            .catch(err => {
+                console.error('MongoDB Connection Error:', err);
+                cachedPromise = null;
+                throw err;
+            });
+    }
+
+    await cachedPromise;
+};
+
+// Middleware to ensure DB is connected before handling requests
+app.use(async (req, res, next) => {
+    if (req.path.startsWith('/api')) {
+        try {
+            await connectDB();
+        } catch (error) {
+            console.error("Database connection failed inside middleware");
+        }
+    }
+    next();
+});
 
 // Schema and Model
 const Portfolio = require('./models/Portfolio');
