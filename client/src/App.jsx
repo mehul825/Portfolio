@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import { portfolioData } from './data';
 
 function App() {
     const [profile, setProfile] = useState(null);
@@ -13,21 +13,11 @@ function App() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchProfile = async () => {
-            try {
-                const res = await axios.get('/api/portfolio');
-                setProfile(res.data);
-                setLoading(false);
-            } catch (err) {
-                console.error("Error fetching data:", err);
-                const status = err.response?.status;
-                const message = err.response?.data?.message || err.message;
-                setError(`Failed to load portfolio data. Status: ${status || 'Unknown'}. Message: ${message}`);
-                setLoading(false);
-            }
-        };
-
-        fetchProfile();
+        // Simulate loading for smoother experience
+        setTimeout(() => {
+            setProfile(portfolioData);
+            setLoading(false);
+        }, 500);
     }, []);
 
     if (loading) {
