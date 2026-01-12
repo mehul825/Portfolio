@@ -15,7 +15,7 @@ function App() {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/portfolio');
+                const res = await axios.get('/api/portfolio');
                 setProfile(res.data);
                 setLoading(false);
             } catch (err) {
