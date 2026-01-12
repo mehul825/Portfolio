@@ -67,6 +67,17 @@ const resumeData = {
     ],
     projects: [
         {
+            title: "MAFLE COUPON AGENCY",
+            description: [
+                "Built a full-stack web application for a coupon agency featuring a modern React frontend and a robust Node.js/Express backend.",
+                "Key features include a public-facing brand site with partner showcases, a fully functional contact system, and a secured admin dashboard for internal management.",
+                "Implemented JWT authentication and a responsive glassmorphism UI."
+            ],
+            techStack: ["React.js", "Node.js", "Express.js", "JWT", "CSS"],
+            link: "https://mafle.netlify.app/",
+            github: "https://github.com/mehul825/mafle-coupon-agency"
+        },
+        {
             title: "E-COMMERCE WEB APPLICATION",
             description: [
                 "Developed a feature-rich E-commerce Web Application enabling seamless shopping experiences with secure user authentication and intuitive navigation.",
