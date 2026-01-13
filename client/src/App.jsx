@@ -22,18 +22,18 @@ function App() {
 
     if (loading) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-slate-900 text-slate-200">
-                <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-cyan-500"></div>
+            <div className="min-h-screen flex items-center justify-center bg-slate-50 text-slate-900">
+                <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-indigo-600"></div>
             </div>
         );
     }
 
     if (error) {
         return (
-            <div className="min-h-screen flex flex-col items-center justify-center bg-slate-900 text-red-500 p-4 text-center">
+            <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 text-red-600 p-4 text-center">
                 <h2 className="text-2xl font-bold mb-2">Error Loading Data</h2>
                 <p className="mb-4">{error}</p>
-                <div className="bg-slate-800 p-4 rounded text-left text-sm font-mono text-slate-300 whitespace-pre-wrap max-w-2xl overflow-auto border border-slate-700">
+                <div className="bg-white p-4 rounded text-left text-sm font-mono text-slate-700 whitespace-pre-wrap max-w-2xl overflow-auto border border-slate-200 shadow-md">
                     <p>Possible causes:</p>
                     <ul className="list-disc pl-5 mb-2">
                         <li>MongoDB URI is missing in Netlify Settings</li>
@@ -46,7 +46,7 @@ function App() {
     }
 
     return (
-        <div className="min-h-screen bg-slate-900 text-slate-200 font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+        <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-indigo-500/30 selection:text-indigo-700">
             <Navbar profile={profile} />
             <Hero profile={profile} />
             <About
