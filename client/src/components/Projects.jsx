@@ -48,7 +48,7 @@ const Projects = ({ projects }) => {
                                     <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
                                         {project.title}
                                     </h3>
-                                    <div className="text-slate-600 mb-6 flex-grow line-clamp-3 text-sm">
+                                    <div className="text-slate-600 mb-6 flex-grow h-24 overflow-y-auto pr-2 custom-scrollbar text-sm">
                                         {Array.isArray(project.description)
                                             ? project.description.join(' ')
                                             : project.description}
