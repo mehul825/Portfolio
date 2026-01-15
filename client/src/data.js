@@ -70,14 +70,14 @@ export const portfolioData = {
         {
             title: "E-COMMERCE WEB APPLICATION",
             description: [
-                "Developed a feature-rich E-commerce Web Application enabling seamless shopping experiences with secure user authentication and intuitive navigation.",
-                "Implemented product catalog, shopping cart, and order management functionalities to streamline the entire purchase flow.",
-                "Built an admin dashboard for efficient product, order, and user account management with real-time updates.",
-                "Utilized React.js, Node.js, Express.js, MySQL, and Redux to ensure responsive design, scalability, and optimal performance."
+                "This MERN stack e-commerce application provides a full-stack solution for modern online retail.",
+                "Built using React (Vite) and Tailwind CSS, it features a responsive UI with a secure Admin Dashboard for product and order management.",
+                "Implemented JWT authentication for secure user sessions and Redux Toolkit to handle complex global state.",
+                "The project showcases my ability to integrate Node.js and MongoDB into a scalable, high-performance architecture."
             ],
-            techStack: ["React.js", "Node.js", "Express.js", "MySQL", "Redux"],
-            link: "#",
-            github: "#"
+            techStack: ["React (Vite)", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Redux Toolkit", "JWT"],
+            link: "https://e-commerce-ms.netlify.app/",
+            github: "https://github.com/mehul825/E-commerce-APP"
         },
         {
             title: "LIBRARY MANAGEMENT SYSTEM",
@@ -88,8 +88,8 @@ export const portfolioData = {
                 "Utilized HTML, CSS, JavaScript, Bootstrap, PHP, and SQL to build a responsive and user-friendly interface."
             ],
             techStack: ["HTML", "CSS", "JavaScript", "Bootstrap", "PHP", "SQL"],
-            link: "#",
-            github: "#"
+            link: "",
+            github: "https://github.com/mehul825/Library_management_system"
         }
     ],
     education: [
